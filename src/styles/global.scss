@@ -1,0 +1,22 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+/*CSS - VARIABLES */
+:root {
+    --backGroundColor: rgb(92, 192, 52);
+    --textColor: #808092;
+}
+
+
+body {
+    background-color: var(--backGroundColor);
+    color: var(--textColor);
+}
+
+body, input, button, textarea {
+    font: 400 16px 'Roboto', sans-serif;
+}
+
+

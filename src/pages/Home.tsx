@@ -1,6 +1,4 @@
-import {useHistory} from 'react-router-dom'
-
-import {firebase} from '../services/firebase';
+import {useHistory} from 'react-router-dom';
 
 
 import illustrationImg from '../assets/images/illustration.svg';
@@ -11,27 +9,26 @@ import {Button} from '../components/Button';
 
 
 import '../styles/auth.scss';
-import { auth } from '../services/firebase';
+import { useAuth } from '../hooks/useAuth';
 
 export function Home() {
 
-    //const history = useHistory();
+    const history = useHistory();
+    const { user, signInWithGoogle } = useAuth();
 
 
     // function to change pages and signIm //
-    function handleCreateRoom() {
+    async function handleCreateRoom() {
 
-        const provider = new firebase.auth.GoogleAuthProvider
+        if(!user) {
+            await signInWithGoogle();
+        }
 
-        auth.signInWithPopup(provider).then(result => {
-            
-            console.log(result);
+            history.push('/rooms/new');
+        }
+        
 
-        });
-
-
-      //  history.push('/rooms/new');
-    }
+    
 
     return(
         <div id = "page-auth">
@@ -44,8 +41,6 @@ export function Home() {
 
 
             <main>
-
-
 
                 <div className="main-content">
                     <img src={logoImg} alt="LetMeAsk-Logo-img" />

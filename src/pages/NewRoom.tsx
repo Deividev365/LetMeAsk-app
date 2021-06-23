@@ -8,8 +8,12 @@ import {Button} from '../components/Button';
 
 
 import '../styles/auth.scss';
+//import { useAuth } from '../hooks/useAuth';
+
 
 export function NewRoom() {
+    //const { user } = useAuth();
+
     return(
         <div id = "page-auth">
 
@@ -22,10 +26,9 @@ export function NewRoom() {
 
             <main>
 
-
-
                 <div className="main-content">
                     <img src={logoImg} alt="LetMeAsk-Logo-img" />
+                   
                    <h2>Criar uma nova sala</h2>
                    
                     <form>
